@@ -17,13 +17,13 @@
 
 + (instancetype)animationItemWithDuration:(CGFloat)duration animation:(void (^)(void))animation completion:(void (^)(BOOL finished))completion
 
-{
+   {
     return [self animationItemWithDuration:duration before:nil animation:animation completion:completion];
 }
 
 + (instancetype)animationItemWithDuration:(CGFloat)duration before:(void (^)(void))before animation:(void (^)(void))animation completion:(void (^)(BOOL finished))completion
 
-{
+   {
     YYUViewAnimationChainItem *item = [YYUViewAnimationChainItem new];
     item.duration = duration;
     item.animationsBlock = animation;
@@ -63,7 +63,6 @@
 }
 
 - (void)addAnimationItems:(NSArray <YYUViewAnimationChainItem *> *)items
-
 {
     if (self.isAnimation) {
         NSAssert(NO, @"animationing can't add");
@@ -77,7 +76,6 @@
 }
 
 - (void)animationFirstItem
-
 {
     if (!self.isAnimation) {
         return;
@@ -133,8 +131,7 @@
 
 
 #pragma mark - getter
-- (NSMutableArray <YYUViewAnimationChainItem *> *)chainedItems
-{
+- (NSMutableArray <YYUViewAnimationChainItem *> *)chainedItems {
     if (!_chainedItems) {
         _chainedItems = [NSMutableArray new];
     }

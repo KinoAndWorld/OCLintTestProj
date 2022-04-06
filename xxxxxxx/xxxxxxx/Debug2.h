@@ -8,6 +8,9 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+#define YY_DIRECT_PROPERTY direct,
+#define YY_DIRECT_METHOD __attribute__((objc_direct))
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Debug2 : NSObject
@@ -31,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)animationItemWithDuration:(CGFloat)duration animation:(void (^)(void))animation completion:(void (^_Nullable)(BOOL finished))completion ;
 
-+ (instancetype)animationItemWithDuration:(CGFloat)duration before:(void (^_Nullable)(void))before animation:(void (^)(void))animation completion:(void (^_Nullable)(BOOL finished))completion ;
++ (instancetype)animationItemWithDuration:(CGFloat)duration before:(void (^_Nullable)(void))before animation:(void (^)(void))animation completion:(void (^_Nullable)(BOOL finished))completion;
 
 
 @end
@@ -42,9 +45,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign, readonly) BOOL isAnimation;
 @property (nonatomic, copy) void (^completionBlock)(NSError *error);
 
-- (void)startAnimation ;
-- (void)stopAnimation ;
-- (void)addAnimationItems:(NSArray <YYUViewAnimationChainItem *> *)items ;
+- (void)startAnimation;
+- (void)stopAnimation;
+- (void)addAnimationItems:(NSArray <YYUViewAnimationChainItem *> *)items;
 
 @end
 

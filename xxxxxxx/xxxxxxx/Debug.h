@@ -10,6 +10,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define YY_DIRECT_PROPERTY direct,
+#define YY_DIRECT_METHOD __attribute__((objc_direct))
 
 @protocol KINOProtocol <NSObject>
 

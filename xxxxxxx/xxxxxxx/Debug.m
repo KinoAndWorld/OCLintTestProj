@@ -4,6 +4,32 @@
 
 static char const kPropertysCacheKeys;
 
+//
+//
+@implementation NSString (BDGame)
+
+- (BOOL)hasPrefix:(NSString *)str {
+    return NO;
+}
+
++ (NSString *)bdg_bigNumDescWithNumber:(NSUInteger)num {
+    if (num == 0) {
+        return @"0";
+    }
+
+    NSUInteger value = num;
+    if (value >= 100000) {
+        return [NSString stringWithFormat:@"%0.2f万", value/10000.0];
+    }
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    formatter.numberStyle = NSNumberFormatterDecimalStyle;
+    return [formatter stringFromNumber:@(value)];
+}
+
+@end
+
+
+
 @implementation KOObserObj
 
 @end
@@ -27,7 +53,7 @@ static char const kPropertysCacheKeys;
 
 }
 
-+ (instancetype)viewWithTitle:(NSString *)title {
++ (instancetype)viewWithTitle:(NSString *)title  {
     KINODebugObject *ooo = [KINODebugObject new];
 //    ooo.title = title;
     return 000;
@@ -37,8 +63,11 @@ static char const kPropertysCacheKeys;
 
 }
 
-- (void)holyFunc
-{
+- (KOObserObj *)myObj {
+    return [KOObserObj new];
+}
+
+- (void)holyFunc {
     [self performSelector:NSSelectorFromString(@"canNotDirect")];
 
     self.myObj = [[KOObserObj alloc] init];
@@ -105,8 +134,7 @@ static char const kPropertysCacheKeys;
 @implementation KINOSubClass
 
 
-+ (instancetype)viewWithTitle:(NSString *)title url:(NSString *)url
-{
++ (instancetype)viewWithTitle:(NSString *)title url:(NSString *)url {
     KINOSubClass *view = [super viewWithTitle:title];
     return view;
 }
@@ -141,31 +169,7 @@ static char const kPropertysCacheKeys;
 
 
 
-//
-//
-@implementation NSString (BDGame)
 
-- (BOOL)hasPrefix:(NSString *)str
-{
-    return NO;
-}
-
-+ (NSString *)bdg_bigNumDescWithNumber:(NSUInteger)num
-{
-    if (num == 0) {
-        return @"0";
-    }
-
-    NSUInteger value = num;
-    if (value >= 100000) {
-        return [NSString stringWithFormat:@"%0.2f万", value/10000.0];
-    }
-    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-    formatter.numberStyle = NSNumberFormatterDecimalStyle;
-    return [formatter stringFromNumber:@(value)];
-}
-
-@end
 //
 //@implementation NSString (BDGame2)
 //

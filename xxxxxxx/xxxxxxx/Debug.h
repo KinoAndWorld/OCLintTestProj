@@ -62,9 +62,9 @@
 
 + (instancetype)share __attribute__((objc_direct));
 
-+ (void)showMe;
++ (void)showMeByClass;
 
-- (void)showMe;
+- (void)showMeByInstance;
 
 @end
 

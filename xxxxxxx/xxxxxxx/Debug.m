@@ -166,12 +166,12 @@ static char const kPropertysCacheKeys;
     return obj;
 }
 
-+ (void)showMe {
++ (void)showMeByClass {
 //    [[self share] showMe];
 }
 
-- (void)showMe {
-
+- (void)showMeByInstance {
+    [[self class] showMeByClass];
 }
 
 @end

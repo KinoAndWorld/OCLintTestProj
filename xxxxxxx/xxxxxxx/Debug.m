@@ -107,6 +107,9 @@ static char const kPropertysCacheKeys;
 
 - (void)cateFunc1;
 
+- (void)cateFunc2withPar:(int)a
+                   withB:(int)b;
+
 - (NSString *)bdg_nickWithUid:(NSString *)uid;
 
 @end
@@ -122,6 +125,12 @@ static char const kPropertysCacheKeys;
 - (NSString *)bdg_nickWithUid:(NSString *)uid;
 {
     return @"";
+}
+
+- (void)cateFunc2withPar:(int)a
+                   withB:(int)b;
+{
+
 }
 
 @end

@@ -44,17 +44,25 @@
 
 @end
 
-@interface KINODebugObject (XXXX)
+@interface KINODebugObject(TestADDI)
 
-//@property (nonatomic, assign, readonly) int findMe;
-//
-//@property (direct, strong, nonatomic) NSString *content;
+@property (nonatomic, copy) NSString *categoryName;
+
+- (void)cateFunc1:(id)obj;
+
+- (void)cateFunc2withPar:(int)a
+                   withB:(int)b;
+
+- (NSString *)bdg_nickWithUid:(NSString *)uid;
 
 @end
+
 
 @interface KINOSubClass : KINODebugObject
 
 @property (nonatomic, copy) NSString *inFather;
+
+//@property (nonatomic, copy) NSString *inFather;
 
 @end
 
@@ -67,6 +75,5 @@
 - (void)showMeByInstance;
 
 @end
-
 
 #endif /* Debug_h */

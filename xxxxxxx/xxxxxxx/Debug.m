@@ -4,36 +4,34 @@
 
 static char const kPropertysCacheKeys;
 
-//
-//
-@implementation NSString (BDGame)
-
-- (BOOL)hasPrefix:(NSString *)str {
-    return NO;
-}
-
-+ (NSString *)bdg_bigNumDescWithNumber:(NSUInteger)num {
-    if (num == 0) {
-        return @"0";
-    }
-
-    NSUInteger value = num;
-    if (value >= 100000) {
-        return [NSString stringWithFormat:@"%0.2f万", value/10000.0];
-    }
-    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-    formatter.numberStyle = NSNumberFormatterDecimalStyle;
-    return [formatter stringFromNumber:@(value)];
-}
-
-@end
-
-
 
 @implementation KOObserObj
 
 @end
 
+
+/* =========================================== */
+
+
+
+@implementation KINOSubClass
+
+
++ (instancetype)viewWithTitle:(NSString *)title url:(NSString *)url {
+    KINOSubClass *view = [super viewWithTitle:title];
+    return view;
+}
+
+- (void)cateFunc1:(id)obj {
+
+}
+
+- (NSString *)inFather
+{
+    return @"";
+}
+
+@end
 
 
 @interface KINODebugObject()
@@ -43,6 +41,10 @@ static char const kPropertysCacheKeys;
 @property (nonatomic, assign) int sss __attribute((__annotate__(("NODIRECT"))));
 
 @property (nonatomic, copy, direct) NSString *resultSt3; //这是需要检测的变量名
+
+@property (nonatomic, assign) int polProp; //这是需要检测的变量名
+
+
 
 @end
 
@@ -60,7 +62,9 @@ static char const kPropertysCacheKeys;
 }
 
 - (void)customSetObj:(KOObserObj *)obj {
-
+    if ([self.resultSt3 respondsToSelector:@selector(polProp)]) {
+        
+    }
 }
 
 - (KOObserObj *)myObj {
@@ -99,25 +103,11 @@ static char const kPropertysCacheKeys;
 
 @end
 
-//
-//
-@interface KINODebugObject(TestADDI)
-
-@property (nonatomic, copy) NSString *categoryName;
-
-- (void)cateFunc1;
-
-- (void)cateFunc2withPar:(int)a
-                   withB:(int)b;
-
-- (NSString *)bdg_nickWithUid:(NSString *)uid;
-
-@end
 
 @implementation KINODebugObject(TestADDI)
 
 
-- (void)cateFunc1:(id)obj __attribute__((objc_direct))
+- (void)cateFunc1:(id)obj
 {
 
 }
@@ -136,19 +126,6 @@ static char const kPropertysCacheKeys;
 @end
 
 
-/* =========================================== */
-
-
-
-@implementation KINOSubClass
-
-
-+ (instancetype)viewWithTitle:(NSString *)title url:(NSString *)url {
-    KINOSubClass *view = [super viewWithTitle:title];
-    return view;
-}
-
-@end
 
 
 /* =========================================== */
@@ -176,7 +153,29 @@ static char const kPropertysCacheKeys;
 
 @end
 
+//
+//
+@implementation NSString (BDGame)
 
+- (BOOL)hasPrefix:(NSString *)str {
+    return NO;
+}
+
++ (NSString *)bdg_bigNumDescWithNumber:(NSUInteger)num {
+    if (num == 0) {
+        return @"0";
+    }
+
+    NSUInteger value = num;
+    if (value >= 100000) {
+        return [NSString stringWithFormat:@"%0.2f万", value/10000.0];
+    }
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    formatter.numberStyle = NSNumberFormatterDecimalStyle;
+    return [formatter stringFromNumber:@(value)];
+}
+
+@end
 
 
 //

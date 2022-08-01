@@ -8,13 +8,38 @@
 #import "Debug2.h"
 #import "IYYUInputModuleBridge.h"
 
-@interface Debug2()
+@interface Debug2()<YYCoreProtocol>
 
-@property (YY_DIRECT_PROPERTY nonatomic, assign) int currentScrollingListView;
+@property (nonatomic, assign) int currentScrollingListView;
 
 @end
 
 @implementation Debug2
+
+//IMPLEMENT_YYCOREPROTOCOL
+
++ (instancetype)sharedCore
+{
+    static dispatch_once_t onceToken;
+    static id _sharedCore = nil;
+    dispatch_once(&onceToken, ^{
+        _sharedCore = [[self alloc] init];
+    });
+    return _sharedCore;
+}
+
+
+- (void)testAAAA
+{
+
+}
+
+
+- (void)testBB
+{
+    
+}
+
 
 - (void)pubAAA {
 //    [YYKVOController observe:[self endLiveService] keyPath:@"placeInt" disposeBy:self distinctUntilChanged:^(id newValue) {
@@ -41,63 +66,8 @@
     return nil;
 }
 
-- (YYUInputModuleBridge *)anchorService
-{
-    return [YYUInputModuleBridge new];
-}
-
-- (void)normalCall {
+- (void)directMethod YY_DIRECT_METHOD {
 
 }
-
-//- (void)aaaaa
-//{
-//    id obj;
-//    [obj directMethod];
-//
-////    NSObject *objjj;
-//
-//}
-
-- (void)directMethod {
-
-}
-
-@end
-
-@implementation YYUInputModuleBridge
-
-#pragma mark - @protocol IInputModuleBridge
-
-- (void)appendToTextViewWithDesc:(NSString *)desc
-{
-//    [SELF_IMPL.moduleView appendToTextViewWithDesc:desc];
-}
-
-@end
-
-
-
-@implementation YYUInputModuleView
-
-#pragma mark - 放到IYYUInputModuleBridge去的接口的实现
-- (void)appendToTextViewWithDesc:(NSString *)desc
-{
-//    [self.inputTextView insertText:desc];
-}
-
-
-@end
-
-
-
-@implementation YYKVOInfo
-
-
-@end
-
-
-
-@implementation YYKVOController
 
 @end

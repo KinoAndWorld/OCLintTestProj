@@ -1,0 +1,6 @@
+- modelCustomPropertyMapper
+- modelContainerPropertyGenericClass
+- modelCustomTransformFromDictionary
+- modelCustomTransformToDictionary
+- modelPropertyBlacklist
+- modelPropertyWhitelist

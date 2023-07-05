@@ -12,6 +12,9 @@
 
 @property (nonatomic, assign) int currentScrollingListView;
 
+@property (nonatomic, assign) int testBB;
+
+
 @end
 
 @implementation Debug2
@@ -34,11 +37,6 @@
 
 }
 
-
-- (void)testBB
-{
-    
-}
 
 
 - (void)pubAAA {
@@ -67,7 +65,7 @@
 }
 
 - (void)directMethod YY_DIRECT_METHOD {
-
+    
 }
 
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38C1A0182966A22A0023FEBE /* SwiftTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C1A0172966A22A0023FEBE /* SwiftTest.swift */; };
 		38D2C3B6278459FC00678276 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D2C3B5278459FC00678276 /* AppDelegate.m */; };
 		38D2C3B9278459FC00678276 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D2C3B8278459FC00678276 /* SceneDelegate.m */; };
 		38D2C3BC278459FC00678276 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D2C3BB278459FC00678276 /* ViewController.m */; };
@@ -16,10 +17,13 @@
 		38D2C3C727845A0000678276 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D2C3C627845A0000678276 /* main.m */; };
 		38D2C3CF27845A3800678276 /* Debug.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D2C3CE27845A3800678276 /* Debug.m */; };
 		38D2ECCC279E4AD3005DD3C0 /* Debug2.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D2ECCB279E4AD2005DD3C0 /* Debug2.m */; };
+		38D2F79829EE8BD000E7C7B3 /* Debug3.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D2F79729EE8BD000E7C7B3 /* Debug3.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3882DF62286D56B800643855 /* IYYUInputModuleBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IYYUInputModuleBridge.h; sourceTree = "<group>"; };
+		38C1A0162966A2290023FEBE /* xxxxxxx-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "xxxxxxx-Bridging-Header.h"; sourceTree = "<group>"; };
+		38C1A0172966A22A0023FEBE /* SwiftTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftTest.swift; sourceTree = "<group>"; };
 		38D2C3B1278459FC00678276 /* xxxxxxx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xxxxxxx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38D2C3B4278459FC00678276 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		38D2C3B5278459FC00678276 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -35,6 +39,8 @@
 		38D2C3CE27845A3800678276 /* Debug.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Debug.m; sourceTree = "<group>"; };
 		38D2ECCA279E4AD2005DD3C0 /* Debug2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Debug2.h; sourceTree = "<group>"; };
 		38D2ECCB279E4AD2005DD3C0 /* Debug2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Debug2.m; sourceTree = "<group>"; };
+		38D2F79629EE8BD000E7C7B3 /* Debug3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Debug3.h; sourceTree = "<group>"; };
+		38D2F79729EE8BD000E7C7B3 /* Debug3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Debug3.m; sourceTree = "<group>"; };
 		38D3C1F22791301800AE05D9 /* Debug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Debug.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,6 +90,10 @@
 				38D2C3CE27845A3800678276 /* Debug.m */,
 				38D2ECCA279E4AD2005DD3C0 /* Debug2.h */,
 				38D2ECCB279E4AD2005DD3C0 /* Debug2.m */,
+				38D2F79629EE8BD000E7C7B3 /* Debug3.h */,
+				38D2F79729EE8BD000E7C7B3 /* Debug3.m */,
+				38C1A0172966A22A0023FEBE /* SwiftTest.swift */,
+				38C1A0162966A2290023FEBE /* xxxxxxx-Bridging-Header.h */,
 			);
 			path = xxxxxxx;
 			sourceTree = "<group>";
@@ -119,6 +129,7 @@
 				TargetAttributes = {
 					38D2C3B0278459FC00678276 = {
 						CreatedOnToolsVersion = 13.2;
+						LastSwiftMigration = 1400;
 					};
 				};
 			};
@@ -163,6 +174,8 @@
 				38D2C3C727845A0000678276 /* main.m in Sources */,
 				38D2C3B9278459FC00678276 /* SceneDelegate.m in Sources */,
 				38D2ECCC279E4AD3005DD3C0 /* Debug2.m in Sources */,
+				38D2F79829EE8BD000E7C7B3 /* Debug3.m in Sources */,
+				38C1A0182966A22A0023FEBE /* SwiftTest.swift in Sources */,
 				38D2C3CF27845A3800678276 /* Debug.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -306,8 +319,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				COMPILER_INDEX_STORE_ENABLE = NO;
+				COMPILER_INDEX_STORE_ENABLE = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8U8QLWDB7H;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -325,6 +339,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Kino.xxxxxxx;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "xxxxxxx/xxxxxxx-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -334,8 +351,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				COMPILER_INDEX_STORE_ENABLE = NO;
+				COMPILER_INDEX_STORE_ENABLE = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8U8QLWDB7H;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -353,6 +371,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Kino.xxxxxxx;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "xxxxxxx/xxxxxxx-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

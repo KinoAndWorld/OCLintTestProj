@@ -1,5 +1,5 @@
 #import "Debug.h"
-#import "Debug2.h"
+//#import "Debug2.h"
 #import <objc/runtime.h>
 
 static char const kPropertysCacheKeys;
@@ -7,23 +7,50 @@ static char const kPropertysCacheKeys;
 
 @implementation KOObserObj
 
+
+- (void)setMvpHeadTapedBlock:(void (^)(long))mvpHeadTapedBlock
+{
+    if ([self respondsToSelector:@selector(setMvpHeadTapedBlock:)]) {
+        [self setMvpHeadTapedBlock:mvpHeadTapedBlock];
+    }
+
+//    BIMSessionManager *sessionManager = [BIMSessionManager ]
+}
+
+- (void)playAnimationWithPath:(NSString *)path EffectValue:(NSDictionary *)effectValue
+                  A2MFilePath:(NSString *)a2mPath{
+
+    [KOObserObj parseForClass:[KINOSubClass class] withData:nil error:nil];
+}
+
++ (id)parseForClass:(Class)cls withData:(NSData *)data error:(NSError **)error {
+    return nil;
+}
+
 @end
 
 
 /* =========================================== */
 
+@implementation InnerClass
 
+@end
 
 @implementation KINOSubClass
 
 
-+ (instancetype)viewWithTitle:(NSString *)title url:(NSString *)url {
++ (instancetype)viewWithTitle:(NSString *)title url:(NSString *)url  {
     KINOSubClass *view = [super viewWithTitle:title];
     return view;
 }
 
 - (void)cateFunc1:(id)obj {
-
+//    NSDictionary *dict = [NSDictionary dictionary];
+//    KINOSubClass *info = [KINOSubClass yy_modelWithDictionary:dict];
+//
+//    NSArray *newBanners = [NSArray yy_modelArrayWithClass:[KINOSubClass class] json:nil];
+//
+//    [NSDictionary yy_modelDictionaryWithClass:KINODebugObject.class json:@{}];
 }
 
 - (NSString *)inFather
@@ -31,8 +58,26 @@ static char const kPropertysCacheKeys;
     return @"";
 }
 
-@end
++ (instancetype)objectUnmarshallFromData:(NSData *)data
+{
+    NSError *err = nil;
+    id ret = [self yy_parseData:data error:&err hasHead:NO];
+    //    if (err) {
+    //        LogSelf(@"parse err:%@ for %@",err,self);
+    //    }
 
+    // TODO: 支持不了这种
+    id ret2 = [[self superclass] yy_parseData:data error:&err hasHead:NO];
+
+    return ret;
+}
+
++ (instancetype)yy_parseData:(NSData *)data error:(NSError * _Nullable __autoreleasing *)error hasHead:(BOOL)hasHead
+{
+    return [KOObserObj parseForClass:self withData:data error:error];
+}
+
+@end
 
 @interface KINODebugObject()
 
@@ -40,19 +85,28 @@ static char const kPropertysCacheKeys;
 
 @property (nonatomic, assign) int sss __attribute((__annotate__(("NODIRECT"))));
 
-@property (nonatomic, copy, direct) NSString *resultSt3; //这是需要检测的变量名
+@property (nonatomic, copy) NSString *resultSt3; //这是需要检测的变量名
 
 @property (nonatomic, assign) int polProp; //这是需要检测的变量名
-
 
 
 @end
 
 @implementation KINODebugObject
 
-- (void)funcAA __attribute((__annotate__(("NODIRECT"))))
+- (void)showAnimate  
 {
 
+}
+
+- (void)yy_onUserCardShow:(id)userCardView
+{
+    
+}
+
+- (void)funcAA __attribute((__annotate__(("NODIRECT"))))
+{
+    
 }
 
 + (instancetype)viewWithTitle:(NSString *)title  {
@@ -71,7 +125,7 @@ static char const kPropertysCacheKeys;
     return [KOObserObj new];
 }
 
-- (void)holyFunc {
+- (void)holyFunc  {
     [self performSelector:NSSelectorFromString(@"canNotDirect")];
 
     self.myObj = [[KOObserObj alloc] init];
@@ -85,15 +139,6 @@ static char const kPropertysCacheKeys;
 
 //!OCLINT
 - (void)protocolFunc {
-//    KINOSubClass2 *inst = [KINOSubClass2 share];
-//    [self performSelector:@selector(showMe)];
-
-    Debug2 *vc = [Debug2 new];
-
-    [vc performSelector:@selector(showMe)];
-
-
-//    [[KINOSubClass2 class] viewWithTitle:@"xxxxxxxx"];
     NSString *astr = NSStringFromClass([self class]);
 
     objc_setAssociatedObject([self class], &kPropertysCacheKeys, @[],
@@ -104,86 +149,3 @@ static char const kPropertysCacheKeys;
 @end
 
 
-@implementation KINODebugObject(TestADDI)
-
-
-- (void)cateFunc1:(id)obj
-{
-
-}
-
-- (NSString *)bdg_nickWithUid:(NSString *)uid;
-{
-    return @"";
-}
-
-- (void)cateFunc2withPar:(int)a
-                   withB:(int)b;
-{
-
-}
-
-@end
-
-
-
-
-/* =========================================== */
-
-
-@implementation KINOSubClass2
-
-+ (instancetype)share __attribute__((objc_direct))
-{
-    static KINOSubClass2 *obj = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        obj = [[KINOSubClass2 alloc] init];
-    });
-    return obj;
-}
-
-+ (void)showMeByClass {
-//    [[self share] showMe];
-}
-
-- (void)showMeByInstance {
-    [[self class] showMeByClass];
-}
-
-@end
-
-//
-//
-@implementation NSString (BDGame)
-
-- (BOOL)hasPrefix:(NSString *)str {
-    return NO;
-}
-
-+ (NSString *)bdg_bigNumDescWithNumber:(NSUInteger)num {
-    if (num == 0) {
-        return @"0";
-    }
-
-    NSUInteger value = num;
-    if (value >= 100000) {
-        return [NSString stringWithFormat:@"%0.2f万", value/10000.0];
-    }
-    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-    formatter.numberStyle = NSNumberFormatterDecimalStyle;
-    return [formatter stringFromNumber:@(value)];
-}
-
-@end
-
-
-//
-//@implementation NSString (BDGame2)
-//
-//+ (NSString *)bdg_bigNumDescWithNumber:(NSUInteger)num
-//{
-//    return @"";
-//}
-//
-//@end

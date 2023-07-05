@@ -10,8 +10,19 @@
 
 #import <Foundation/Foundation.h>
 
-#define YY_DIRECT_PROPERTY direct,
-#define YY_DIRECT_METHOD __attribute__((objc_direct))
+#define YYU_DIRECT_PROPERTY direct,
+#define YYU_DIRECT_METHOD __attribute__((objc_direct))
+
+//#define YY_PROPERTY_DY_ENABLE 1
+
+#if YY_PROPERTY_DY_ENABLE
+#define YYPropertyDynamicClass(ClassName) YYPropertyDynamic##ClassName
+#define YYPropertyDynamicProperty(Proterty) @dynamic Proterty;
+#else
+#define YYPropertyDynamicClass(ClassName) ClassName
+#define YYPropertyDynamicProperty(Proterty)
+#endif
+
 
 @protocol KINOProtocol <NSObject>
 
@@ -30,6 +41,9 @@
 @interface KOObserObj : NSObject
 
 //@property (nonatomic, assign) NSUInteger count;
+@property (nonatomic, copy) void (^mvpHeadTapedBlock)(long uid);
+
++ (id)parseForClass:(Class)cls withData:(NSData *)data error:(NSError **)error;
 
 @end
 
@@ -42,38 +56,27 @@
 
 + (instancetype)viewWithTitle:(NSString *)title;
 
-@end
-
-@interface KINODebugObject(TestADDI)
-
-@property (nonatomic, copy) NSString *categoryName;
-
-- (void)cateFunc1:(id)obj;
-
-- (void)cateFunc2withPar:(int)a
-                   withB:(int)b;
-
-- (NSString *)bdg_nickWithUid:(NSString *)uid;
+- (void)yy_onUserCardShow:(id)userCardView;
 
 @end
 
+@interface KINODebugObject(NNONNE)<KINOProtocol>
+
+@end
+
+@interface InnerClass : NSObject
+
+@end
 
 @interface KINOSubClass : KINODebugObject
 
 @property (nonatomic, copy) NSString *inFather;
 
-//@property (nonatomic, copy) NSString *inFather;
+@property (nonatomic, strong) InnerClass *innerrrrr;
+
+@property (nonatomic, strong) NSArray<InnerClass *> *innerList;
 
 @end
 
-@interface KINOSubClass2 : KINODebugObject
-
-+ (instancetype)share __attribute__((objc_direct));
-
-+ (void)showMeByClass;
-
-- (void)showMeByInstance;
-
-@end
 
 #endif /* Debug_h */

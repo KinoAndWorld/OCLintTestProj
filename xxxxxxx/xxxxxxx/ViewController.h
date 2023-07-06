@@ -6,6 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Debug.h"
 
 @interface ViewController : UIViewController
 

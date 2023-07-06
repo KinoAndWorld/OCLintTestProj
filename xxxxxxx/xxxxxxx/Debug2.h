@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "Debug.h"
 
 #define YY_DIRECT_PROPERTY direct,
 #define YY_DIRECT_METHOD __attribute__((objc_direct))
